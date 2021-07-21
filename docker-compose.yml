@@ -56,18 +56,23 @@ services:
         protocol: udp
 
   database:
-    image: postgres:13-alpine
+    image: mysql:8
+    command: mysqld --default-authentication-plugin=mysql_native_password
+    restart: always
     environment:
-      - POSTGRES_DB=api
-      - POSTGRES_PASSWORD=!ChangeMe!
-      - POSTGRES_USER=api-platform
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=api-platform
+      - MYSQL_PASSWORD=12345
+      - MYSQL_DATABASE=api
     volumes:
-      - db_data:/var/lib/postgresql/data:rw
-      # you may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      # - ./api/docker/db/data:/var/lib/postgresql/data:rw
+      - mysql_data:/var/lib/mysql
+    ports:
+      - target: 3306
+        published: 3355
+        protocol: tcp
 
 volumes:
   php_socket:
-  db_data:
+  mysql_data:
   caddy_data:
   caddy_config:
