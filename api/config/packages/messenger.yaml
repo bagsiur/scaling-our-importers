@@ -1,0 +1,10 @@
+framework:
+    messenger:
+        buses:
+            command_bus:
+                middleware:
+                    - doctrine_ping_connection
+        transports:
+            async: '%env(MESSENGER_TRANSPORT_DSN)%'
+        routing:
+            'App\Message\TourMessage': async

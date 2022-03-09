@@ -16,6 +16,9 @@
     "api-platform/schema-generator": {
         "version": "v3.0.0"
     },
+    "behat/transliterator": {
+        "version": "v1.3.0"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.2"
     },
@@ -135,6 +138,9 @@
     "fzaninotto/faker": {
         "version": "v1.5.0"
     },
+    "gedmo/doctrine-extensions": {
+        "version": "v3.2.0"
+    },
     "guzzlehttp/guzzle": {
         "version": "7.3.0"
     },
@@ -143,6 +149,9 @@
     },
     "guzzlehttp/psr7": {
         "version": "1.8.2"
+    },
+    "imagine/imagine": {
+        "version": "1.2.4"
     },
     "laminas/laminas-code": {
         "version": "4.3.0"
@@ -159,8 +168,27 @@
     "lcobucci/jwt": {
         "version": "4.1.4"
     },
+    "league/flysystem": {
+        "version": "3.0.11"
+    },
+    "league/flysystem-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "913dc3d7a5a1af0d2b044c5ac3a16e2f851d7380"
+        },
+        "files": [
+            "config/packages/flysystem.yaml",
+            "var/storage/.gitignore"
+        ]
+    },
     "league/html-to-markdown": {
         "version": "4.10.0"
+    },
+    "league/mime-type-detection": {
+        "version": "1.9.0"
     },
     "monolog/monolog": {
         "version": "2.2.0"
@@ -222,6 +250,21 @@
     "ralouphie/getallheaders": {
         "version": "3.0.3"
     },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "e805aba9eff5372e2d149a9ff56566769e22819d"
+        },
+        "files": [
+            "config/packages/stof_doctrine_extensions.yaml"
+        ]
+    },
+    "symfony/amqp-messenger": {
+        "version": "v5.3.14"
+    },
     "symfony/asset": {
         "version": "v5.3.0"
     },
@@ -272,6 +315,9 @@
     },
     "symfony/doctrine-bridge": {
         "version": "v5.3.1"
+    },
+    "symfony/doctrine-messenger": {
+        "version": "v5.3.14"
     },
     "symfony/dom-crawler": {
         "version": "v5.3.0"
@@ -364,6 +410,18 @@
             "config/packages/mercure.yaml"
         ]
     },
+    "symfony/messenger": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "25e3c964d3aee480b3acc3114ffb7940c89edfed"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
     "symfony/monolog-bridge": {
         "version": "v5.3.0"
     },
@@ -426,6 +484,12 @@
     },
     "symfony/property-info": {
         "version": "v5.3.1"
+    },
+    "symfony/proxy-manager-bridge": {
+        "version": "v5.3.14"
+    },
+    "symfony/redis-messenger": {
+        "version": "v5.3.14"
     },
     "symfony/routing": {
         "version": "5.3",

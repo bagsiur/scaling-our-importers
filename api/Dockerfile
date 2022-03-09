@@ -32,13 +32,18 @@ RUN set -eux; \
 		libzip-dev \
 		php8-pdo_mysql \
 		zlib-dev \
+		freetype-dev \
+		libjpeg-turbo-dev \
+		libpng-dev \
 	; \
 	\
 	docker-php-ext-configure zip; \
+	docker-php-ext-configure gd --with-freetype --with-jpeg; \
 	docker-php-ext-install -j$(nproc) \
 		intl \
 		pdo_mysql \
 		zip \
+		gd \
 	; \
 	pecl install \
 		apcu-${APCU_VERSION} \

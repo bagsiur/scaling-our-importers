@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Faker\Factory;
+use LogicException;
 
 /*
  * @author Radosław Andraszyk <radoslaw.andraszyk@gmail.com>
@@ -20,8 +23,12 @@ final class imporetController extends AbstractController
      * 
      * @return Response
      */
-    public function __invoke(): Response
+    public function __invoke(Request $request, ParameterBagInterface $params): Response
     {
+
+        if($request->query->get('key') != $params->get('importer_api_key')){
+            throw new LogicException('Access denied');
+        }   
 
         $faker = Factory::create();
         $tours = array();
@@ -35,7 +42,7 @@ final class imporetController extends AbstractController
             for($c = 0; $c <= rand(1,5); $c++){
                 $cities[] = $faker->city();
                 $dates[] = $faker->dateTimeBetween('now', '1 year', 'Europe/Warsaw');
-                $images[] = "https://picsum.photos/1280/720?random=".mt_rand(1, 55000);
+                $images[] = "https://picsum.photos/1280/720.jpg";
             }
 
             $tours[] =array(

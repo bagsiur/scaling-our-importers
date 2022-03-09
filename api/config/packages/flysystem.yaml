@@ -1,0 +1,17 @@
+# Read the documentation at https://github.com/thephpleague/flysystem-bundle/blob/master/docs/1-getting-started.md
+flysystem:
+    storages:
+        tours.storage:
+            adapter: 'local'
+            options:
+                directory: '%kernel.project_dir%/var/storage/tours'
+        assets.storage:
+            adapter: 'local'
+            visibility: public
+            options:
+                directory: '%kernel.project_dir%/assets'
+                permissions:
+                    file:
+                        private: 0644
+                    dir:
+                        private: 0755
